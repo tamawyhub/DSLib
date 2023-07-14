@@ -1,3 +1,6 @@
+#ifndef _BSTREE_H_
+#define _BSTREE_H_
+
 #include <iostream>
 #include <stdlib.h>
 template <typename T>
@@ -24,3 +27,4 @@ class BSTree {
 	static int _print_t(const BSTree<int> *, int, int, int, char [20][255]);
 };
 
+#endif

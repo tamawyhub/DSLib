@@ -1,3 +1,6 @@
+#ifndef _AVLTREE_H_
+#define _AVLTREE_H_
+
 #include "BSTree.hpp"
 template <typename T>
 class AVLTree : public BSTree<T> {
@@ -15,3 +18,4 @@ class AVLTree : public BSTree<T> {
 	void doubleWithRightChild();
 };
 
+#endif
