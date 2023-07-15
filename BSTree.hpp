@@ -7,10 +7,12 @@ template <typename T>
 class BSTree {
 	public:
 	BSTree(): ltree(NULL), rtree(NULL), height(-1){}
-	BSTree (const T &v): value(v), ltree(NULL), rtree(NULL), height(0) {} //empty constructor
-	BSTree (const BSTree<T> &); //copy constructor
+	BSTree (const T &v): value(v), ltree(NULL), rtree(NULL), height(0) {}
+	BSTree (const BSTree<T> &);
+	BSTree (const BSTree<T> &&);
 	~BSTree();
 	BSTree<T>& operator = (const BSTree<T> &);
+	BSTree<T>& operator = (const BSTree<T> &&);
 	void clone (const BSTree<T> &);
 	virtual void insert(const T &value);
 	virtual void remove(const T &value);

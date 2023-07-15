@@ -4,6 +4,16 @@ BSTree<T>::BSTree(const BSTree<T> &bst) {
 	this->clone(bst);
 }
 template <typename T>
+BSTree<T>::BSTree(const BSTree<T> &&bst) {
+	this->ltree=bst.ltree;
+	this->rtree=bst.rtree;
+	this->value=bst.value;
+	this->height=bst.height;
+
+	this->ltree=NULL;
+	this->rtree=NULL;
+}
+template <typename T>
 BSTree<T>::~BSTree(){
 	delete ltree;
 	delete rtree;
@@ -11,6 +21,18 @@ BSTree<T>::~BSTree(){
 template <typename T>
 BSTree<T>& BSTree<T>::operator = (const BSTree<T> &bst) {	
 	clone(bst);
+	return *this;
+}
+template <typename T>
+BSTree<T>& BSTree<T>::operator = (const BSTree<T> &&bst) {	
+	this->ltree=bst.ltree;
+	this->rtree=bst.rtree;
+	this->value=bst.value;
+	this->height=bst.height;
+
+	this->ltree=NULL;
+	this->rtree=NULL;
+
 	return *this;
 }
 template <typename T>
@@ -140,6 +162,11 @@ int BSTree<T>::getHeight() const {
 }
 
 template <typename T>
+bool BSTree<T>::isEmpty() const {
+	return height<0;
+}
+
+/*template <typename T>
 void BSTree<T>::print(std::ostream &os,int depth) const {
 	return print_t();
 	if (isEmpty()) {
@@ -151,12 +178,6 @@ void BSTree<T>::print(std::ostream &os,int depth) const {
 	os << value << std::endl << std::endl;
 	if (ltree != NULL) ltree->print(os,depth+1);
 }
-
-template <typename T>
-bool BSTree<T>::isEmpty() const {
-	return height<0;
-}
-
 
 template <typename T>
 int BSTree<T>::_print_t(const BSTree<int> *tree, int is_left, int offset, int depth, char s[20][255])
@@ -226,3 +247,4 @@ void BSTree<T>::print_t() const
 }
 
 template class BSTree<int>;
+*/
