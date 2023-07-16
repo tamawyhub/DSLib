@@ -27,8 +27,8 @@ public:
 	~BinHeap <T, Comp> ();
 	int resize(size_t new_size);
 	int insert(T& item);
-	int deleteMin(void);
-	const T& peekMin(void);
+	int deleteMin(T& minItem);
+	int peekMin(T& minItem);
 };
 
 #endif
